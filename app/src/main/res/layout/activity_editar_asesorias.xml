@@ -44,22 +44,6 @@
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/txt_fecha_realizacion_detalles"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="#121111"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/txt_fecha_terminacion_detalles"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="#121111"
-            android:textSize="18sp" />
-
-        <TextView
             android:id="@+id/txt_lugar_detalles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -98,6 +82,38 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Ingresa detalles del tema"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Fecha de realizacion"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/txt_fecha_inicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Fecha de terminacion"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/txt_fecha_fin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
             android:inputType="textPersonName" />
 
         <LinearLayout

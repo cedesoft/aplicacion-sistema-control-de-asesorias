@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.asesorias.AdapterMaterias;
 import com.example.asesorias.ApiService;
+import com.example.asesorias.Login;
 import com.example.asesorias.Materia;
 import com.example.asesorias.R;
 
@@ -41,13 +42,7 @@ public class MateriasFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         materiasViewModel = ViewModelProviders.of(this).get(MateriasViewModel.class);
         View root = inflater.inflate(R.layout.fragment_materias, container, false);
-        //final TextView textView = root.findViewById(R.id.text_materias);
-        /*materiasViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                //textView.setText(s);
-            }
-        });*/
+
         rv = root.findViewById(R.id.rv_materias);
         rv.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
@@ -56,7 +51,7 @@ public class MateriasFragment extends Fragment {
 
         cliente= new Retrofit.Builder().baseUrl(ApiService.URL).addConverterFactory(GsonConverterFactory.create()).build();
         apiService=cliente.create(ApiService.class);
-        apiService.listaMaterias().enqueue(new Callback<List<Materia>>() {
+        apiService.listaMaterias(Login.carrera).enqueue(new Callback<List<Materia>>() {
             @Override
             public void onResponse(Call<List<Materia>> call, Response<List<Materia>> response) {
                 Log.i("Cliente","Cliente Android");
@@ -64,7 +59,7 @@ public class MateriasFragment extends Fragment {
                     listamaterias =response.body();
                     for (Materia materia:listamaterias){
                         Log.i("Libro",materia.toString());
-                        materias.add(new Materia(materia.getId(),materia.getNombre(), materia.getDescripcion(), materia.getCreditos(), materia.getHoras(), materia.getSemestre(), materia.getId_docente(), materia.getId_carrera()));
+                        materias.add(new Materia(materia.getId(),materia.getNombre(), materia.getDescripcion(), materia.getCreditos(), materia.getHoras(), materia.getSemestre(), materia.getId_docente(), materia.getId_carrera(), materia.getNom_docente()));
                     }
                     AdapterMaterias adapter = new AdapterMaterias(materias);
                     rv.setAdapter(adapter);

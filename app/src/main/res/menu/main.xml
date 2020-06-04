@@ -2,8 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/item_enviadas"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Solicitudes enviadas"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/item_recibidas"
+        android:title="Solicitudes recibidas" />
 </menu>

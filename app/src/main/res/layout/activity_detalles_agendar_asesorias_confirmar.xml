@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="18dp">
 
     <TextView
         android:id="@+id/textView9"
@@ -14,33 +15,41 @@
         android:textSize="24sp" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/txt_materia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/txt_unidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/txt_tema"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/txt_alumno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:gravity="center"
+            android:text="TextView"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,12 +63,12 @@
             android:layout_weight="1" />
 
         <EditText
-            android:id="@+id/fecha"
+            android:id="@+id/fecha_de_inicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Fijar fecha"
+            android:hint="Fijar fecha de inicio"
             android:inputType="textPersonName" />
 
         <Space
@@ -79,12 +88,12 @@
             android:layout_weight="1" />
 
         <EditText
-            android:id="@+id/editText14"
+            android:id="@+id/fecha_de_terminacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Fijar hora"
+            android:hint="Fijar fecha de terminacion"
             android:inputType="textPersonName" />
 
         <Space
@@ -104,7 +113,7 @@
             android:layout_weight="1" />
 
         <EditText
-            android:id="@+id/editText15"
+            android:id="@+id/txt_lugar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -117,5 +126,13 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/verde"
+        android:onClick="Guardar"
+        android:text="Confirmar" />
 
 </LinearLayout>

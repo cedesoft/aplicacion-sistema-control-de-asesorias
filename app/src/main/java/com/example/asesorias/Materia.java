@@ -9,8 +9,9 @@ public class Materia {
     public String semestre;
     public String id_docente;
     public String id_carrera;
+    public String nom_docente;
 
-    public Materia(String id, String nombre, String descripcion, String creditos, String horas, String semestre, String id_docente, String id_carrera){
+    public Materia(String id, String nombre, String descripcion, String creditos, String horas, String semestre, String id_docente, String id_carrera, String nom_docente){
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -19,6 +20,15 @@ public class Materia {
         this.semestre = semestre;
         this.id_docente = id_docente;
         this.id_carrera = id_carrera;
+        this.nom_docente = nom_docente;
+    }
+
+    public String getNom_docente() {
+        return nom_docente;
+    }
+
+    public void setNom_docente(String nom_docente) {
+        this.nom_docente = nom_docente;
     }
 
     public String getId() {

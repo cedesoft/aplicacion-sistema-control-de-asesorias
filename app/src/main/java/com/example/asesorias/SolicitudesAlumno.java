@@ -11,6 +11,18 @@ public class SolicitudesAlumno {
     public String alumno;
     public String materia;
 
+    public SolicitudesAlumno(String id, String status, String fecha_solicitud, String tema, String unidad, String situacion, String docente, String alumno, String materia) {
+        this.id = id;
+        this.status = status;
+        this.fecha_solicitud = fecha_solicitud;
+        this.tema = tema;
+        this.unidad = unidad;
+        this.situacion = situacion;
+        this.docente = docente;
+        this.alumno = alumno;
+        this.materia = materia;
+    }
+
     public String getId() {
         return id;
     }

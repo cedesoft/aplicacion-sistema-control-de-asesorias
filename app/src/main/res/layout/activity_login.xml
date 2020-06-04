@@ -57,7 +57,7 @@
             android:layout_weight="1" />
 
         <EditText
-            android:id="@+id/editText11"
+            android:id="@+id/txt_correo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -82,39 +82,13 @@
             android:layout_weight="1" />
 
         <EditText
-            android:id="@+id/editText12"
+            android:id="@+id/txt_pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
             android:hint="Contraseña"
-            android:inputType="textPersonName" />
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Space
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#04FFFFFF"
-            android:onClick="mover1"
-            android:text="Olvide mi contraseña"
-            android:textColor="#2196F3" />
+            android:inputType="textPassword" />
 
         <Space
             android:layout_width="wrap_content"
@@ -138,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/verde"
-            android:onClick="mover2"
+            android:onClick="iniciar"
             android:text="Ingresar" />
 
         <Space

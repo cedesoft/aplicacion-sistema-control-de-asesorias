@@ -47,7 +47,7 @@ public class AdapterMaterias extends RecyclerView.Adapter<AdapterMaterias.ItemVi
     @Override
     public void onBindViewHolder(@NonNull final ItemViewHolder holder, final int i) {
         holder.nombre.setText(materias.get(i).nombre);
-        holder.docente.setText(materias.get(i).id_docente);
+        holder.docente.setText(materias.get(i).nom_docente);
 
         holder.solicitar.setOnClickListener(new View.OnClickListener() {
             @Override

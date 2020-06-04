@@ -28,7 +28,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="N_control"
+                    android:gravity="center"
+                    android:text="num_control"
                     android:textColor="#272525"
                     android:textSize="20sp" />
 
@@ -49,7 +50,7 @@
                     android:layout_weight="1" />
 
                 <EditText
-                    android:id="@+id/editText5"
+                    android:id="@+id/txt_alumno_sol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -79,6 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Materia"
+                    android:gravity="center"
                     android:textColor="#272525"
                     android:textSize="20sp" />
 
@@ -99,12 +101,12 @@
                     android:layout_weight="1" />
 
                 <EditText
-                    android:id="@+id/editText6"
+                    android:id="@+id/txt_materia_sol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="ombre de la materia"
+                    android:hint="Nombre de la materia"
                     android:inputType="textPersonName" />
 
                 <Space
@@ -129,6 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Unidad"
+                    android:gravity="center"
                     android:textColor="#272525"
                     android:textSize="20sp" />
 
@@ -149,7 +152,7 @@
                     android:layout_weight="1" />
 
                 <EditText
-                    android:id="@+id/editText7"
+                    android:id="@+id/txt_unidad_sol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -174,11 +177,12 @@
                     android:layout_weight="1" />
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/solinicio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Fecha"
+                    android:gravity="center"
+                    android:text="Fecha de inicio"
                     android:textColor="#272525"
                     android:textSize="20sp" />
 
@@ -199,12 +203,62 @@
                     android:layout_weight="1" />
 
                 <EditText
-                    android:id="@+id/editText8"
+                    android:id="@+id/txt_inicio_sol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="date" />
+                    android:inputType="text" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/textofecha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Fecha de terminacion"
+                    android:textColor="#272525"
+                    android:textSize="20sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/txt_terminacion_sol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text" />
 
                 <Space
                     android:layout_width="wrap_content"
@@ -228,6 +282,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Situacion academica"
+                    android:gravity="center"
                     android:textColor="#272525"
                     android:textSize="20sp" />
 
@@ -275,6 +330,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Tema"
+                    android:gravity="center"
                     android:textColor="#272525"
                     android:textSize="20sp" />
 
@@ -295,12 +351,64 @@
                     android:layout_weight="1" />
 
                 <EditText
-                    android:id="@+id/editText9"
+                    android:id="@+id/txt_tema_sol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="Ingresa los detalles del tema"
+                    android:inputType="textPersonName" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/textView131"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Lugar"
+                    android:textColor="#272525"
+                    android:textSize="20sp" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:id="@+id/txt_lugar_sol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="Ingresa el lugar"
                     android:inputType="textPersonName" />
 
                 <Space
@@ -327,6 +435,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/verde"
+                    android:onClick="RealizarSolicitud"
                     android:text="Enviar solicitud" />
 
                 <Space

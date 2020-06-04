@@ -1,86 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_asesorias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
             <TextView
-                android:id="@+id/materia"
-                android:layout_width="match_parent"
+                android:id="@+id/txt_materia_asesoria"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
                 android:textColor="#090909"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/docentes"
-                android:layout_width="match_parent"
+                android:id="@+id/txt_alumnos_asesoria"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_below="@+id/txt_materia_asesoria" />
 
             <TextView
-                android:id="@+id/tema"
-                android:layout_width="match_parent"
+                android:id="@+id/txt_tema_asesoria"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_below="@+id/txt_alumnos_asesoria" />
 
             <TextView
-                android:id="@+id/estado"
-                android:layout_width="match_parent"
+                android:id="@+id/txt_estado_asesoria"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_below="@+id/txt_tema_asesoria" />
 
             <TextView
-                android:id="@+id/fecha"
-                android:layout_width="match_parent"
+                android:id="@+id/txt_fecha_asesoria"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_below="@+id/txt_estado_asesoria" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="33dp"
-                android:orientation="horizontal">
+            <Button
+                android:id="@+id/btn_deta"
+                android:layout_width="66dp"
+                android:layout_height="31dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="91dp"
+                android:layout_marginEnd="45dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:text="Detalles"
+                android:textColor="#2196F3"
+                android:textSize="12sp" />
 
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <Space
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-
-                <Button
-                    android:id="@+id/cancelar_solicitud"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="#00FFFFFF"
-                    android:text="Detalles"
-                    android:textColor="#2196F3"
-                    android:textSize="12sp" />
-            </LinearLayout>
-        </LinearLayout>
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
 </LinearLayout>

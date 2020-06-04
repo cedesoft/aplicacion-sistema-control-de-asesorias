@@ -2,8 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/item_aceptadas"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Asesorias pendientes"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/item_terminadas"
+        android:orderInCategory="100"
+        android:title="Asesorias terminadas" />
+    <item
+        android:id="@+id/item_canceladas"
+        android:orderInCategory="100"
+        android:title="Asesorias canceladas" />
 </menu>

@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class AdapterDocente extends RecyclerView.Adapter<AdapterDocente.ItemViewHolder> implements View.OnClickListener{
-    List<Docente> docentes;
+public class AdapterMateriasDocentes extends RecyclerView.Adapter<AdapterMateriasDocentes.ItemViewHolder> implements View.OnClickListener{
+    List<Materia> materias;
     String id, name;
     private View.OnClickListener listener;
     Intent intent;
@@ -24,33 +24,39 @@ public class AdapterDocente extends RecyclerView.Adapter<AdapterDocente.ItemView
         this.listener = listener;
     }
 
-    public AdapterDocente(List<Docente> docentes) {
-        this.docentes = docentes;
+    @Override
+    public void onClick(View v) {
+        if(listener != null){
+            listener.onClick(v);
+        }
+    }
+
+    public AdapterMateriasDocentes(List<Materia> materias) {
+        this.materias = materias;
     }
 
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_docentes, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_materias, parent, false);
         v.setOnClickListener(this);
         ItemViewHolder pvh = new ItemViewHolder(v);
         return pvh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ItemViewHolder holder, final int i) {
-        holder.nombre.setText(docentes.get(i).nombre);
-        holder.carrera.setText(docentes.get(i).id_carrera);
+    public void onBindViewHolder(@NonNull final ItemViewHolder holder,final int i) {
+        holder.nombre.setText(materias.get(i).nombre);
+        holder.docente.setText(materias.get(i).nom_docente);
 
         holder.solicitar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                id = docentes.get(i).id;
-                name = docentes.get(i).nombre;
-                intent = new Intent(holder.context, solicitar_asesoria.class);
+                id = materias.get(i).id;
+                name = materias.get(i).nombre;
+                intent = new Intent(holder.context, solicitar_asesoriad.class);
                 intent.putExtra("id", id);
                 intent.putExtra("nombre",name);
-                intent.putExtra("origen","Docentes");
                 holder.context.startActivity(intent);
             }
         });
@@ -63,29 +69,23 @@ public class AdapterDocente extends RecyclerView.Adapter<AdapterDocente.ItemView
 
     @Override
     public int getItemCount() {
-        return docentes.size();
-    }
-
-    @Override
-    public void onClick(View v) {
-        if(listener != null){
-            listener.onClick(v);
-        }
+        return materias.size();
     }
 
     public static class ItemViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
-        TextView nombre, carrera;
+        TextView nombre, docente;
         Button solicitar;
         Context context;
 
         ItemViewHolder(View itemView) {
             super(itemView);
+
             context = itemView.getContext();
-            cv = (CardView)itemView.findViewById(R.id.cv_docentes);
-            nombre = (TextView)itemView.findViewById(R.id.txt_docente);
-            carrera = (TextView)itemView.findViewById(R.id.txt_carrera_docente);
-            solicitar = itemView.findViewById(R.id.btn_solicitar_docente);
+            cv = (CardView)itemView.findViewById(R.id.cv_materias);
+            nombre = (TextView)itemView.findViewById(R.id.materia);
+            docente = (TextView)itemView.findViewById(R.id.docente);
+            solicitar = itemView.findViewById(R.id.solicitud);
         }
     }
 }

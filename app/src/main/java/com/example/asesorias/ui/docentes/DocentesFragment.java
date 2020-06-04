@@ -19,6 +19,7 @@ import com.example.asesorias.AdapterDocente;
 import com.example.asesorias.AdapterMaterias;
 import com.example.asesorias.ApiService;
 import com.example.asesorias.Docente;
+import com.example.asesorias.Login;
 import com.example.asesorias.Materia;
 import com.example.asesorias.R;
 
@@ -52,7 +53,7 @@ public class DocentesFragment extends Fragment {
 
         cliente= new Retrofit.Builder().baseUrl(ApiService.URL).addConverterFactory(GsonConverterFactory.create()).build();
         apiService=cliente.create(ApiService.class);
-        apiService.listaDocentes().enqueue(new Callback<List<Docente>>() {
+        apiService.listaDocentes(Login.carrera).enqueue(new Callback<List<Docente>>() {
             @Override
             public void onResponse(Call<List<Docente>> call, Response<List<Docente>> response) {
                 Log.i("Cliente","Cliente Android");
