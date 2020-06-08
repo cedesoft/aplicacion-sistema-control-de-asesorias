@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void iniciar(View view){
+        count = 0;
         docente = new ArrayList<>();
         correo = txt_correo.getText().toString();
         pass = txt_pass.getText().toString();
@@ -52,13 +54,18 @@ public class Login extends AppCompatActivity {
                     docente = response.body();
                     for (usuarios docentes:docente){
                         if(correo.equals(docentes.getCorreo()) && pass.equals(docentes.getContraseña())){
+                            count = 1;
                             Nombre_de_usuario = docentes.getNombre();
                             carrera = docentes.getId_carrera();
                             id_usuario = docentes.getId();
                             email = docentes.getCorreo();
                             tipo = "Docente";
                             mover2();
+                            break;
                         }
+                    }
+                    if(count == 0){
+                        iniciarAlumno();
                     }
                 }
             }
@@ -67,11 +74,10 @@ public class Login extends AppCompatActivity {
                 Log.i("Error",t.getMessage());
             }
         });
-
-        iniciarAlumno();
     }
 
     public void iniciarAlumno(){
+        count = 0;
         alumno = new ArrayList<>();
         correo = txt_correo.getText().toString();
         pass = txt_pass.getText().toString();
@@ -86,13 +92,18 @@ public class Login extends AppCompatActivity {
                     alumno = response.body();
                     for (usuarios alumnos:alumno){
                         if(correo.equals(alumnos.getCorreo()) && pass.equals(alumnos.getContraseña())){
+                            count = 1;
                             Nombre_de_usuario = alumnos.getNombre();
                             carrera = alumnos.getId_carrera();
                             id_usuario = alumnos.getId();
                             email = alumnos.getCorreo();
                             tipo = "Alumno";
                             mover1();
+                            break;
                         }
+                    }
+                    if(count == 0){
+                        Toast.makeText(getBaseContext(), "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

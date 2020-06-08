@@ -30,18 +30,6 @@
                 android:textSize="18sp" />
 
             <Button
-                android:id="@+id/detalles"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="258dp"
-                android:layout_marginBottom="14dp"
-                android:background="#00FFFFFF"
-                android:text="Mas detalles"
-                android:textColor="#2196F3" />
-
-            <Button
                 android:id="@+id/solicitud"
                 android:layout_width="158dp"
                 android:layout_height="35dp"

@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Nombre dle docente"
+                    android:hint="Alumno"
                     android:inputType="textPersonName" />
 
                 <Space
@@ -202,13 +202,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <EditText
+                <DatePicker
                     android:id="@+id/txt_inicio_sol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="date"
+                    android:datePickerMode="spinner"
+                    android:calendarViewShown="false"/>
 
                 <Space
                     android:layout_width="wrap_content"
@@ -252,13 +254,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
-                <EditText
+                <DatePicker
                     android:id="@+id/txt_terminacion_sol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="text" />
+                    android:inputType="text"
+                    android:datePickerMode="spinner"
+                    android:calendarViewShown="false"/>
 
                 <Space
                     android:layout_width="wrap_content"
@@ -444,7 +448,7 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/btn_cancel_solicitud"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

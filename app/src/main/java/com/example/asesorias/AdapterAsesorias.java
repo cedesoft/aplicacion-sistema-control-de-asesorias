@@ -47,7 +47,11 @@ public class AdapterAsesorias extends RecyclerView.Adapter<AdapterAsesorias.Item
     @Override
     public void onBindViewHolder(@NonNull final ItemViewHolder holder,final int i) {
         holder.materia.setText(asesorias.get(i).nom_materia);
-        holder.alumno.setText(asesorias.get(i).nom_alumno);
+        if(Login.tipo.equals("Alumno")){
+            holder.alumno.setText(asesorias.get(i).nom_docente);
+        }else{
+            holder.alumno.setText(asesorias.get(i).nom_alumno);
+        }
         holder.tema.setText(asesorias.get(i).tema);
         holder.estado.setText(asesorias.get(i).status);
         holder.fecha.setText(asesorias.get(i).fechaRealizacion);
@@ -65,8 +69,8 @@ public class AdapterAsesorias extends RecyclerView.Adapter<AdapterAsesorias.Item
                 intent.putExtra("lugar", asesorias.get(i).lugar);
                 intent.putExtra("unidad", asesorias.get(i).unidad);
                 intent.putExtra("tema", asesorias.get(i).tema);
-                intent.putExtra("id_docente", asesorias.get(i).id_docente);
-                intent.putExtra("id_materia", asesorias.get(i).id_materia);
+                intent.putExtra("id_docente", asesorias.get(i).nom_docente);
+                intent.putExtra("id_materia", asesorias.get(i).nom_materia);
                 holder.context.startActivity(intent);
             }
         });

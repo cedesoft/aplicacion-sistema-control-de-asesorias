@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -21,11 +23,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class solicitar_asesoriad extends AppCompatActivity {
-    EditText txt_alumno, txt_materia, txt_unidad, txt_tema, txt_lugar, txt_inicio, txt_fin;
+    EditText txt_alumno, txt_materia, txt_unidad, txt_tema, txt_lugar;
+    DatePicker txt_inicio, txt_fin;
     Spinner spinner;
     Retrofit cliente;
     ApiService apiService;
     String id, name;
+    Button cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +47,14 @@ public class solicitar_asesoriad extends AppCompatActivity {
         txt_lugar = findViewById(R.id.txt_lugar_sol);
         txt_inicio = findViewById(R.id.txt_inicio_sol);
         txt_fin = findViewById(R.id.txt_terminacion_sol);
+        cancel = findViewById(R.id.btn_cancel_solicitud);
 
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Volver();
+            }
+        });
         txt_materia.setText(name);
 
         spinner = findViewById(R.id.spinner2);
@@ -64,8 +75,22 @@ public class solicitar_asesoriad extends AppCompatActivity {
     }
 
     public void RealizarSolicitud(View view){
-        String docente = "2", materia = id, inicio = txt_inicio.getText().toString(), fin = txt_fin.getText().toString(), lugar = txt_lugar.getText().toString();
-        String alumno =  txt_alumno.getText().toString(),unidad =  txt_unidad.getText().toString(), tema =  txt_tema.getText().toString(), situacion = spinner.getSelectedItem().toString();
+        String mes, mes2;
+        if((txt_inicio.getMonth()+1) > 9){
+            mes = ""+(txt_inicio.getMonth()+1);
+        }else{
+            mes = "0"+(txt_inicio.getMonth()+1);
+        }
+        if((txt_fin.getMonth()+1) > 9){
+            mes2 = ""+(txt_fin.getMonth()+1);
+        }else{
+            mes2 = "0"+(txt_fin.getMonth()+1);
+        }
+
+        String docente = "2", materia = id, inicio = txt_inicio.getYear()+"-"+mes+"-"+txt_inicio.getDayOfMonth() ,
+                fin = txt_fin.getYear()+"-"+mes2+"-"+txt_fin.getDayOfMonth(), lugar = txt_lugar.getText().toString();
+        String alumno =  txt_alumno.getText().toString(), unidad =  txt_unidad.getText().toString(), tema =  txt_tema.getText().toString(), situacion = spinner.getSelectedItem().toString();
+
         cliente = new Retrofit.Builder().baseUrl(ApiService.URL).addConverterFactory(GsonConverterFactory.create()).build();
         apiService = cliente.create(ApiService.class);
         apiService.solicitarDocente(tema, unidad, situacion, inicio, fin, lugar, docente, materia, alumno).enqueue(new Callback<List<SolicitudAlumnoRecibida>>() {

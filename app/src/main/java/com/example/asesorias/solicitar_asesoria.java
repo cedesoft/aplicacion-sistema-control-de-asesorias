@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -29,6 +30,7 @@ public class solicitar_asesoria extends AppCompatActivity {
     Retrofit cliente;
     ApiService apiService;
     String id, name, origen;
+    Button cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,14 @@ public class solicitar_asesoria extends AppCompatActivity {
         txt_materia = findViewById(R.id.txt_sol_materia);
         txt_unidad = findViewById(R.id.txt_sol_unidad);
         txt_tema = findViewById(R.id.txt_sol_tema);
+        cancel = findViewById(R.id.btn_cancel_solicitud1);
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Volver();
+            }
+        });
 
         if(origen.equals("Materias")){
             txt_materia.setText(name);

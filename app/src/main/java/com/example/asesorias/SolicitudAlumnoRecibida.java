@@ -13,8 +13,11 @@ public class SolicitudAlumnoRecibida {
     public String id_docente;
     public String id_materia;
     public String id_alumno;
+    public String nom_materia;
+    public String nom_alumno;
+    public String nom_docente;
 
-    public SolicitudAlumnoRecibida(String id, String status, String fechaSolicitud, String fecha_realizacion, String fecha_terminacion, String lugar, String unidad, String tema, String situacion_academica, String id_docente, String id_materia, String id_alumno) {
+    public SolicitudAlumnoRecibida(String id, String status, String fechaSolicitud, String fecha_realizacion, String fecha_terminacion, String lugar, String unidad, String tema, String situacion_academica, String id_docente, String id_materia, String id_alumno, String nom_materia, String nom_alumno, String nom_docente) {
         this.id = id;
         this.status = status;
         this.fechaSolicitud = fechaSolicitud;
@@ -27,6 +30,9 @@ public class SolicitudAlumnoRecibida {
         this.id_docente = id_docente;
         this.id_materia = id_materia;
         this.id_alumno = id_alumno;
+        this.nom_materia = nom_materia;
+        this.nom_alumno = nom_alumno;
+        this.nom_docente = nom_docente;
     }
 
     public String getId() {

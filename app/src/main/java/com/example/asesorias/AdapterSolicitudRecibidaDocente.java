@@ -56,11 +56,11 @@ public class AdapterSolicitudRecibidaDocente extends RecyclerView.Adapter<Adapte
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, final int i) {
-        holder.materia.setText(solicitud.get(i).id_materia);
+        holder.materia.setText(solicitud.get(i).nom_materia);
         holder.unidad.setText(solicitud.get(i).unidad);
         holder.tema.setText(solicitud.get(i).tema);
         holder.situacion.setText(solicitud.get(i).situacion_academica);
-        holder.docente.setText(solicitud.get(i).id_docente);
+        holder.docente.setText(solicitud.get(i).nom_alumno);
         holder.fecha.setText(solicitud.get(i).fechaSolicitud);
 
         holder.detalles.setOnClickListener(new View.OnClickListener() {
@@ -69,7 +69,7 @@ public class AdapterSolicitudRecibidaDocente extends RecyclerView.Adapter<Adapte
                 id = solicitud.get(i).id;
                 intent = new Intent(ItemViewHolder.context, Detalles_agendar_asesorias_confirmar.class);
                 intent.putExtra("id",id);
-                intent.putExtra("materia",solicitud.get(i).id_materia);
+                intent.putExtra("materia",solicitud.get(i).nom_materia);
                 intent.putExtra("alumno",solicitud.get(i).id_alumno);
                 intent.putExtra("docente",solicitud.get(i).id_docente);
                 intent.putExtra("fecha_solicitud",solicitud.get(i).fechaSolicitud);

@@ -10,7 +10,7 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiService {
-    public static final String URL = "http://192.168.0.107/sistema-control-asesorias/public/";
+    public static final String URL = "http://192.168.100.102/sistema-control-asesorias/public/";
 
     @GET("docentes")
     Call<List<usuarios>> docentes();
@@ -71,5 +71,4 @@ public interface ApiService {
 
     @GET("solicitar-docente")
     Call<List<SolicitudAlumnoRecibida>> solicitarDocente(@Query("tema") String tema, @Query("unidad") String unidad, @Query("situacion") String situacion,@Query("fecha_realizacion") String fecha_realizacion, @Query("fecha_terminacion") String fecha_terminacion, @Query("lugar") String lugar, @Query("docente") String docente, @Query("materia") String materia, @Query("alumno") String alumno);
-
 }

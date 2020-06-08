@@ -94,10 +94,4 @@ public class Materia {
     public void setId_carrera(String id_carrera) {
         this.id_carrera = id_carrera;
     }
-
-    @Override
-    public String toString() {
-        return this.id+"\n "+"nombre: "+this.nombre+"\n "+"descripcion: "+this.descripcion+"\n "+"creditos: "+
-                this.creditos+"\n"+"horas: "+this.horas+"\n"+"semestre: "+this.semestre+"\n "+"docente: "+this.id_docente+"\n ";
-    }
 }

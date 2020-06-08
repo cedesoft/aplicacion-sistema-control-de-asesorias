@@ -61,6 +61,7 @@ public class HistorialFragment extends Fragment {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rv.setLayoutManager(llm);
         solicitudes = new ArrayList<>();
+        listaSolicitudes = new ArrayList<>();
 
         cliente= new Retrofit.Builder().baseUrl(ApiService.URL).addConverterFactory(GsonConverterFactory.create()).build();
         apiService=cliente.create(ApiService.class);
@@ -72,7 +73,7 @@ public class HistorialFragment extends Fragment {
                     listaSolicitudes = response.body();
                     for (SolicitudAlumno solicitud:listaSolicitudes){
                         Log.i("Libro",solicitud.toString());
-                        solicitudes.add(new SolicitudAlumno(solicitud.getId(), solicitud.getStatus(), solicitud.getFechaSolicitud(),"Unidad: " +solicitud.getUnidad(), "Tema: " + solicitud.getTema(), solicitud.getSituacion_academica(), solicitud.getId_docente(), solicitud.getId_materia(), solicitud.getId_alumno()));
+                        solicitudes.add(new SolicitudAlumno(solicitud.getId(), solicitud.getStatus(), solicitud.getFechaSolicitud(),"Unidad: " +solicitud.getUnidad(), "Tema: " + solicitud.getTema(), solicitud.getSituacion_academica(), solicitud.getId_docente(), solicitud.getId_materia(), solicitud.getId_alumno(),solicitud.nom_materia, solicitud.nom_alumno, solicitud.nom_docente));
                     }
                     AdapterSolicitud adapter = new AdapterSolicitud(solicitudes);
                     rv.setAdapter(adapter);
@@ -112,6 +113,8 @@ public class HistorialFragment extends Fragment {
 
     public void Recibidas(){
         solicitudesRecibidas = new ArrayList<>();
+        listaSolicitudesRecibidas = new ArrayList<>();
+
         cliente= new Retrofit.Builder().baseUrl(ApiService.URL).addConverterFactory(GsonConverterFactory.create()).build();
         apiService=cliente.create(ApiService.class);
         apiService.listaSolicitudesRecibidas(Login.id_usuario, "Alumno").enqueue(new Callback<List<SolicitudAlumnoRecibida>>() {
@@ -122,7 +125,7 @@ public class HistorialFragment extends Fragment {
                     listaSolicitudesRecibidas = response.body();
                     for (SolicitudAlumnoRecibida solicitudRecibida:listaSolicitudesRecibidas){
                         Log.i("Libro",solicitudRecibida.toString());
-                        solicitudesRecibidas.add(new SolicitudAlumnoRecibida(solicitudRecibida.getId(), solicitudRecibida.getStatus(), solicitudRecibida.getFechaSolicitud(), solicitudRecibida.getFecha_realizacion(), solicitudRecibida.getFecha_terminacion(), solicitudRecibida.getLugar(),"Unidad: " +solicitudRecibida.getUnidad(), "Tema: " + solicitudRecibida.getTema(), solicitudRecibida.getSituacion_academica(), solicitudRecibida.getId_docente(), solicitudRecibida.getId_materia(), solicitudRecibida.getId_alumno()));
+                        solicitudesRecibidas.add(new SolicitudAlumnoRecibida(solicitudRecibida.getId(), solicitudRecibida.getStatus(), solicitudRecibida.getFechaSolicitud(), solicitudRecibida.getFecha_realizacion(), solicitudRecibida.getFecha_terminacion(), solicitudRecibida.getLugar(),"Unidad: " +solicitudRecibida.getUnidad(), "Tema: " + solicitudRecibida.getTema(), solicitudRecibida.getSituacion_academica(), solicitudRecibida.getId_docente(), solicitudRecibida.getId_materia(), solicitudRecibida.getId_alumno(),solicitudRecibida.nom_materia, solicitudRecibida.nom_alumno, solicitudRecibida.nom_docente));
                     }
                     AdapterSolicitudRecibida adapter = new AdapterSolicitudRecibida(solicitudesRecibidas);
                     rv.setAdapter(adapter);
@@ -137,6 +140,8 @@ public class HistorialFragment extends Fragment {
 
     public void Enviadas(){
         solicitudes = new ArrayList<>();
+        listaSolicitudes = new ArrayList<>();
+
         cliente= new Retrofit.Builder().baseUrl(ApiService.URL).addConverterFactory(GsonConverterFactory.create()).build();
         apiService=cliente.create(ApiService.class);
         apiService.listaSolicitudes(Login.id_usuario, "Alumno").enqueue(new Callback<List<SolicitudAlumno>>() {
@@ -147,7 +152,7 @@ public class HistorialFragment extends Fragment {
                     listaSolicitudes = response.body();
                     for (SolicitudAlumno solicitud:listaSolicitudes){
                         Log.i("Libro",solicitud.toString());
-                        solicitudes.add(new SolicitudAlumno(solicitud.getId(), solicitud.getStatus(), solicitud.getFechaSolicitud(),"Unidad: " +solicitud.getUnidad(), "Tema: " + solicitud.getTema(), solicitud.getSituacion_academica(), solicitud.getId_docente(), solicitud.getId_materia(), solicitud.getId_alumno()));
+                        solicitudes.add(new SolicitudAlumno(solicitud.getId(), solicitud.getStatus(), solicitud.getFechaSolicitud(),"Unidad: " +solicitud.getUnidad(), "Tema: " + solicitud.getTema(), solicitud.getSituacion_academica(), solicitud.getId_docente(), solicitud.getId_materia(), solicitud.getId_alumno(),solicitud.nom_materia, solicitud.nom_alumno, solicitud.nom_docente));
                     }
                     AdapterSolicitud adapter = new AdapterSolicitud(solicitudes);
                     rv.setAdapter(adapter);

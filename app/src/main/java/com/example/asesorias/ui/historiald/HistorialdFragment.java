@@ -72,7 +72,7 @@ public class HistorialdFragment extends Fragment {
                     listaSolicitudes = response.body();
                     for (SolicitudAlumno solicitud:listaSolicitudes){
                         Log.i("Libro",solicitud.toString());
-                        solicitudes.add(new SolicitudAlumno(solicitud.getId(), solicitud.getStatus(), solicitud.getFechaSolicitud(),"Unidad: " +solicitud.getUnidad(), "Tema: " + solicitud.getTema(), solicitud.getSituacion_academica(), solicitud.getId_docente(), solicitud.getId_materia(), solicitud.getId_alumno()));
+                        solicitudes.add(new SolicitudAlumno(solicitud.getId(), solicitud.getStatus(), solicitud.getFechaSolicitud(),"Unidad: " +solicitud.getUnidad(), "Tema: " + solicitud.getTema(), solicitud.getSituacion_academica(), solicitud.getId_docente(), solicitud.getId_materia(), solicitud.getId_alumno(), solicitud.nom_materia, solicitud.nom_alumno,solicitud.nom_docente));
                     }
                     AdapterSolicitudRecibidaDocente adapter = new AdapterSolicitudRecibidaDocente(solicitudes);
                     rv.setAdapter(adapter);
@@ -110,6 +110,7 @@ public class HistorialdFragment extends Fragment {
 
     public void Recibidas(){
         listaSolicitudes = new ArrayList<>();
+        solicitudes = new ArrayList<>();
         cliente= new Retrofit.Builder().baseUrl(ApiService.URL).addConverterFactory(GsonConverterFactory.create()).build();
         apiService=cliente.create(ApiService.class);
         apiService.listaSolicitudes(Login.id_usuario, "Docente").enqueue(new Callback<List<SolicitudAlumno>>() {
@@ -120,7 +121,7 @@ public class HistorialdFragment extends Fragment {
                     listaSolicitudes = response.body();
                     for (SolicitudAlumno solicitud:listaSolicitudes){
                         Log.i("Libro",solicitud.toString());
-                        solicitudes.add(new SolicitudAlumno(solicitud.getId(), solicitud.getStatus(), solicitud.getFechaSolicitud(),"Unidad: " +solicitud.getUnidad(), "Tema: " + solicitud.getTema(), solicitud.getSituacion_academica(), solicitud.getId_docente(), solicitud.getId_materia(), solicitud.getId_alumno()));
+                        solicitudes.add(new SolicitudAlumno(solicitud.getId(), solicitud.getStatus(), solicitud.getFechaSolicitud(),"Unidad: " +solicitud.getUnidad(), "Tema: " + solicitud.getTema(), solicitud.getSituacion_academica(), solicitud.getId_docente(), solicitud.getId_materia(), solicitud.getId_alumno(),solicitud.nom_materia, solicitud.nom_alumno,solicitud.nom_docente));
                     }
                     AdapterSolicitudRecibidaDocente adapter = new AdapterSolicitudRecibidaDocente(solicitudes);
                     rv.setAdapter(adapter);
@@ -135,6 +136,7 @@ public class HistorialdFragment extends Fragment {
 
     public void Enviadas(){
         solicitudesRecibidas = new ArrayList<>();
+        listaSolicitudesRecibidas = new ArrayList<>();
         cliente= new Retrofit.Builder().baseUrl(ApiService.URL).addConverterFactory(GsonConverterFactory.create()).build();
         apiService=cliente.create(ApiService.class);
         apiService.listaSolicitudesRecibidas(Login.id_usuario, "Docente").enqueue(new Callback<List<SolicitudAlumnoRecibida>>() {
@@ -145,7 +147,7 @@ public class HistorialdFragment extends Fragment {
                     listaSolicitudesRecibidas = response.body();
                     for (SolicitudAlumnoRecibida solicitudRecibida:listaSolicitudesRecibidas){
                         Log.i("Libro",solicitudRecibida.toString());
-                        solicitudesRecibidas.add(new SolicitudAlumnoRecibida(solicitudRecibida.getId(), solicitudRecibida.getStatus(), solicitudRecibida.getFechaSolicitud(), solicitudRecibida.getFecha_realizacion(), solicitudRecibida.getFecha_terminacion(), solicitudRecibida.getLugar(),"Unidad: " +solicitudRecibida.getUnidad(), "Tema: " + solicitudRecibida.getTema(), solicitudRecibida.getSituacion_academica(), solicitudRecibida.getId_docente(), solicitudRecibida.getId_materia(), solicitudRecibida.getId_alumno()));
+                        solicitudesRecibidas.add(new SolicitudAlumnoRecibida(solicitudRecibida.getId(), solicitudRecibida.getStatus(), solicitudRecibida.getFechaSolicitud(), solicitudRecibida.getFecha_realizacion(), solicitudRecibida.getFecha_terminacion(), solicitudRecibida.getLugar(),"Unidad: " +solicitudRecibida.getUnidad(), "Tema: " + solicitudRecibida.getTema(), solicitudRecibida.getSituacion_academica(), solicitudRecibida.getId_docente(), solicitudRecibida.getId_materia(), solicitudRecibida.getId_alumno(),solicitudRecibida.nom_materia, solicitudRecibida.nom_alumno,solicitudRecibida.nom_docente));
                     }
                     AdapterSolicitud2 adapter = new AdapterSolicitud2(solicitudesRecibidas);
                     rv.setAdapter(adapter);
