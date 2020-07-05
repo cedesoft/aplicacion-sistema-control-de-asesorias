@@ -10,13 +10,16 @@ import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiService {
-    public static final String URL = "http://192.168.100.102/sistema-control-asesorias/public/";
+    public static final String URL = "http://itsn.edu.mx/asesorias/sistema-control-asesorias/public/";
 
     @GET("docentes")
     Call<List<usuarios>> docentes();
 
     @GET("alumnos")
     Call<List<usuarios>> alumnos();
+
+    @GET("usuarios")
+    Call<List<users>> usuarios();
 
     @GET("materias")
     Call<List<Materia>> listaMaterias(@Query("id_carrera") String carrera);

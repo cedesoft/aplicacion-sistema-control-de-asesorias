@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,12 +22,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Login extends AppCompatActivity {
     private List<usuarios> docente;
     private List<usuarios> alumno;
+    private List<users> usuario;
     Retrofit cliente;
     ApiService apiService;
     String correo, pass;
     EditText txt_correo, txt_pass;
+    Button in;
     public static String Nombre_de_usuario, carrera, id_usuario, email, tipo;
-    int count = 0;
+    int count = 0, count2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +38,19 @@ public class Login extends AppCompatActivity {
 
         txt_correo = findViewById(R.id.txt_correo);
         txt_pass = findViewById(R.id.txt_pass);
+        in = findViewById(R.id.button7);
 
+        in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                correo = txt_correo.getText().toString();
+                pass = txt_pass.getText().toString();
+                Login(correo, pass);
+            }
+        });
     }
 
-    public void iniciar(View view){
+    public void iniciar(){
         count = 0;
         docente = new ArrayList<>();
         correo = txt_correo.getText().toString();
@@ -53,7 +65,7 @@ public class Login extends AppCompatActivity {
                 if (response.isSuccessful()){
                     docente = response.body();
                     for (usuarios docentes:docente){
-                        if(correo.equals(docentes.getCorreo()) && pass.equals(docentes.getContraseña())){
+                        if(correo.equals(docentes.getCorreo())){
                             count = 1;
                             Nombre_de_usuario = docentes.getNombre();
                             carrera = docentes.getId_carrera();
@@ -77,7 +89,6 @@ public class Login extends AppCompatActivity {
     }
 
     public void iniciarAlumno(){
-        count = 0;
         alumno = new ArrayList<>();
         correo = txt_correo.getText().toString();
         pass = txt_pass.getText().toString();
@@ -91,8 +102,7 @@ public class Login extends AppCompatActivity {
                 if (response.isSuccessful()){
                     alumno = response.body();
                     for (usuarios alumnos:alumno){
-                        if(correo.equals(alumnos.getCorreo()) && pass.equals(alumnos.getContraseña())){
-                            count = 1;
+                        if(correo.equals(alumnos.getCorreo())){
                             Nombre_de_usuario = alumnos.getNombre();
                             carrera = alumnos.getId_carrera();
                             id_usuario = alumnos.getId();
@@ -102,13 +112,40 @@ public class Login extends AppCompatActivity {
                             break;
                         }
                     }
-                    if(count == 0){
+                }
+            }
+            @Override
+            public void onFailure(Call<List<usuarios>> call, Throwable t) {
+                Log.i("Error",t.getMessage());
+            }
+        });
+    }
+
+    public void Login(final String user, final String pass){
+        count2 = 0;
+        usuario = new ArrayList<>();
+        cliente= new Retrofit.Builder().baseUrl(ApiService.URL).addConverterFactory(GsonConverterFactory.create()).build();
+        apiService=cliente.create(ApiService.class);
+        apiService.usuarios().enqueue(new Callback<List<users>>() {
+            @Override
+            public void onResponse(Call<List<users>> call, Response<List<users>> response) {
+                Log.i("Cliente","Cliente Android");
+                if (response.isSuccessful()){
+                    usuario = response.body();
+                    for (users usuario:usuario){
+                        if(user.equals(usuario.getEmail()) && BCrypt.checkpw(pass, usuario.getPassword())){
+                            count2 = 1;
+                            iniciar();
+                            break;
+                        }
+                    }
+                    if(count2 == 0){
                         Toast.makeText(getBaseContext(), "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
             @Override
-            public void onFailure(Call<List<usuarios>> call, Throwable t) {
+            public void onFailure(Call<List<users>> call, Throwable t) {
                 Log.i("Error",t.getMessage());
             }
         });
